@@ -1,0 +1,292 @@
+---
+title: "Datos de estaciones meteorológicas"
+format: html
+---
+
+## Instalar librerías
+
+```{r}
+library(dplyr)
+library(readr)
+library(lubridate)
+```
+
+## Descargar y guardar archivos en "datos"
+
+```{r}
+# URL de descarga directa desde GitHub
+estacion_nh0472 <- "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0472.csv"
+estacion_nh0472_archivo <- "datos/NH0472.csv"
+
+# Descargar el archivo
+download.file(estacion_nh0472, estacion_nh0472_archivo)
+
+# Leer el archivo CSV
+nh0472 <- read.csv(estacion_nh0472_archivo)
+nh0472
+
+glimpse(nh0472)
+#35 COLUMNAS Y 20425 REGISTROS
+
+```
+
+```{r}
+# URL de descarga directa desde GitHub
+estacion_nh0910 <- "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0910.csv"
+estacion_nh0910_archivo <- "datos/NH0910.csv"
+
+# Descargar el archivo
+download.file(estacion_nh0910, estacion_nh0910_archivo)
+
+# Leer el archivo CSV
+nh0910 <- read.csv(estacion_nh0910_archivo)
+nh0910
+
+glimpse(nh0910)
+#35 COLUMNAS Y 15553 REGISTROS
+```
+
+```{r}
+# URL de descarga directa desde GitHub
+estacion_nh0046 <- "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0046.csv"
+estacion_nh0046_archivo <- "datos/NH0046.csv"
+
+# Descargar el archivo
+download.file(estacion_nh0046, estacion_nh0046_archivo)
+
+# Leer el archivo CSV
+nh0046 <- read.csv(estacion_nh0046_archivo)
+nh0046
+
+glimpse(nh0046)
+#35 COLUMNAS Y 17041 REGISTROS
+```
+
+```{r}
+# URL de descarga directa desde GitHub
+estacion_nh0098 <- "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0098.csv"
+estacion_nh0098_archivo <- "datos/NH0098.csv"
+
+# Descargar el archivo
+download.file(estacion_nh0098, estacion_nh0098_archivo)
+
+# Leer el archivo CSV
+nh0098 <- read.csv(estacion_nh0098_archivo)
+nh0098
+
+glimpse(nh0098)
+#35 COLUMNAS Y 23733 REGISTROS
+```
+
+```{r}
+# URL de descarga directa desde GitHub
+estacion_nh0437 <- "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0437.csv"
+estacion_nh0437_archivo <- "datos/NH0437.csv"
+
+# Descargar el archivo
+download.file(estacion_nh0437, estacion_nh0437_archivo)
+
+# Leer el archivo CSV
+nh0437 <- read.csv(estacion_nh0437_archivo)
+nh0437
+
+glimpse(nh0437)
+#35 COLUMNAS Y 18929 REGISTROS
+```
+
+## Comprobar que todas las columnas son iguales
+
+```{r}
+
+# Verificar si todos tienen los mismos nombres de columnas
+df_iguales <- identical(sort(names(nh0472)), sort(names(nh0910))) &&
+                 identical(sort(names(nh0910)), sort(names(nh0046))) &&
+                 identical(sort(names(nh0046)), sort(names(nh0098))) &&
+                 identical(sort(names(nh0098)), sort(names(nh0437)))
+
+if (df_iguales)
+  {
+    print("Todos los data frames tienen las mismas columnas.")
+  }else 
+    {
+      print("Los data frames no tienen las mismas columnas.")
+    }
+
+```
+
+## Tipos de datos
+
+```{r}
+str(nh0046)
+#id: string (chr)
+#fecha: stirng
+#temperatura_abrigo_150cm: numérica continua
+#temperatura_abrigo_150cm_maxima: numérica continua
+#temperatura_abrigo_150cm_minima: numérica continua
+#temperatura_intemperie_5cm_minima: numérica continua
+#temperatura_intemperie_50cm_minima: numérica continua
+#temperatura_suelo_5cm_media: numérica continua
+#temperatura_suelo_10cm_media: numérica continua
+#temperatura_inte_5cm: True/False
+#temperatura_intemperie_150cm_minima: True/False
+#humedad_suelo: True/False
+#precipitacion_pluviometrica: numérica continua
+#granizo: 0/1
+#nieve: 0/1
+#heliofania_efectiva: numérica continua
+#heliofania_relativa: numérica continua
+#tesion_vapor_media: numérica continua
+#humedad_media: True/False
+#humedad_media_8_14_20: numérica discreta
+#rocio_medio: numérica continua
+#duracion_follaje_mojado: numérica continua
+#velocidad_viento_200cm_media: numérica continua
+#direccion_viento_200cm: True/False ?
+#velocidad_viento_1000cm_media: numérica discreta
+#direccion_viento_1000cm: - ?
+#velocidad_viento_maxima: True/False ?
+#presion_media: numérica continua ?
+#radiacion_global: numérica continua
+#radiacion_neta: numérica continua ?
+#evaporacion_tanque: True/False ?
+#evapotranspiracion_potencial: numérica continua
+#profundidad_napa: numérica continua?
+#horas_frio: numérica continua
+#unidad_frio: True/False ?
+```
+
+## Unir data frames
+
+```{r}
+estaciones_meteorologicas <- rbind(nh0472,nh0910,nh0046,nh0098,nh0437)
+
+glimpse(estaciones_meteorologicas)
+#35 COLUMNAS(+1 del origen) Y 95681 REGISTROS
+```
+
+## Registros de temperatura en cada data frame
+
+```{r}
+Temperatura_nh0472 <- select(nh0472, temperatura_abrigo_150cm, temperatura_abrigo_150cm_maxima, temperatura_abrigo_150cm_minima, temperatura_intemperie_5cm_minima, temperatura_intemperie_50cm_minima, temperatura_suelo_5cm_media, temperatura_suelo_10cm_media, temperatura_inte_5cm, temperatura_intemperie_150cm_minima)
+
+Total_registros_nh0472 <- sum(colSums(!is.na(Temperatura_nh0472)))
+Total_registros_nh0472
+```
+
+```{r}
+Temperatura_nh0910 <- select(nh0910, temperatura_abrigo_150cm, temperatura_abrigo_150cm_maxima, temperatura_abrigo_150cm_minima, temperatura_intemperie_5cm_minima, temperatura_intemperie_50cm_minima, temperatura_suelo_5cm_media, temperatura_suelo_10cm_media, temperatura_inte_5cm, temperatura_intemperie_150cm_minima)
+
+Total_registros_nh0910 <- sum(colSums(!is.na(Temperatura_nh0910)))
+Total_registros_nh0910
+```
+
+```{r}
+Temperatura_nh0046 <- select(nh0046, temperatura_abrigo_150cm, temperatura_abrigo_150cm_maxima, temperatura_abrigo_150cm_minima, temperatura_intemperie_5cm_minima, temperatura_intemperie_50cm_minima, temperatura_suelo_5cm_media, temperatura_suelo_10cm_media, temperatura_inte_5cm, temperatura_intemperie_150cm_minima)
+
+Total_registros_nh0046 <- sum(colSums(!is.na(Temperatura_nh0046)))
+Total_registros_nh0046
+```
+
+```{r}
+Temperatura_nh0098 <- select(nh0098, temperatura_abrigo_150cm, temperatura_abrigo_150cm_maxima, temperatura_abrigo_150cm_minima, temperatura_intemperie_5cm_minima, temperatura_intemperie_50cm_minima, temperatura_suelo_5cm_media, temperatura_suelo_10cm_media, temperatura_inte_5cm, temperatura_intemperie_150cm_minima)
+
+Total_registros_nh0098 <- sum(colSums(!is.na(Temperatura_nh0098)))
+Total_registros_nh0098
+```
+
+```{r}
+Temperatura_nh0437 <- select(nh0437, temperatura_abrigo_150cm, temperatura_abrigo_150cm_maxima, temperatura_abrigo_150cm_minima, temperatura_intemperie_5cm_minima, temperatura_intemperie_50cm_minima, temperatura_suelo_5cm_media, temperatura_suelo_10cm_media, temperatura_inte_5cm, temperatura_intemperie_150cm_minima)
+
+Total_registros_nh0437 <- sum(colSums(!is.na(Temperatura_nh0437)))
+Total_registros_nh0437
+```
+
+## Temperatura mínima y máxima en cada estación
+
+```{r}
+tem_min_nh0472<- apply(Temperatura_nh0472, 2, function(x) min(x, na.rm = TRUE))
+tem_max_nh0472 <- apply(Temperatura_nh0472, 2, function(x) max(x, na.rm = TRUE))
+
+tem_min_nh0472
+tem_max_nh0472
+```
+
+## Temperatura promedio de abrigo a 150cm en cada estación y desvío estándar
+
+```{r}
+tem_prom_150cm_nh0472 <- mean(nh0472$temperatura_abrigo_150cm, na.rm = TRUE)
+sd_temp_abrigo_150cm_nh0472 <-  sd(nh0472$temperatura_abrigo_150cm, na.rm = TRUE)
+
+tem_prom_150cm_nh0472
+sd_temp_abrigo_150cm_nh0472
+```
+
+```{r}
+tem_prom_150cm_nh0910 <- mean(nh0910$temperatura_abrigo_150cm, na.rm = TRUE)
+sd_temp_abrigo_150cm_nh0910 <-  sd(nh0910$temperatura_abrigo_150cm, na.rm = TRUE)
+
+tem_prom_150cm_nh0910
+sd_temp_abrigo_150cm_nh0910
+```
+
+```{r}
+tem_prom_150cm_nh0046 <- mean(nh0046$temperatura_abrigo_150cm, na.rm = TRUE)
+sd_temp_abrigo_150cm_nh0046 <-  sd(nh0046$temperatura_abrigo_150cm, na.rm = TRUE)
+
+tem_prom_150cm_nh0046
+sd_temp_abrigo_150cm_nh0046
+```
+
+```{r}
+tem_prom_150cm_nh0098 <- mean(nh0098$temperatura_abrigo_150cm, na.rm = TRUE)
+sd_temp_abrigo_150cm_nh0098 <-  sd(nh0098$temperatura_abrigo_150cm, na.rm = TRUE)
+
+
+tem_prom_150cm_nh0098
+sd_temp_abrigo_150cm_nh0098
+```
+
+```{r}
+tem_prom_150cm_nh0437 <- mean(nh0437$temperatura_abrigo_150cm, na.rm = TRUE)
+sd_temp_abrigo_150cm_nh0437 <-  sd(nh0437$temperatura_abrigo_150cm, na.rm = TRUE)
+
+tem_prom_150cm_nh0437
+sd_temp_abrigo_150cm_nh0437
+```
+
+## Proporción de NA en temperatura de abrigo a 150cm
+
+```{r}
+prop_na_tem_150cm <- (sum(is.na(estaciones_meteorologicas$temperatura_abrigo_150cm)) / length(estaciones_meteorologicas$temperatura_abrigo_150cm))
+
+prop_na_tem_150cm
+```
+
+## Promedio anual de la temperatura de abrigo a 150 cm en cada estación
+
+```{r}
+estaciones_meteorologicas <- estaciones_meteorologicas %>%
+  mutate(anio = year(fecha))
+
+prom_anual_tem_150cm <- estaciones_meteorologicas %>% 
+  group_by(id,anio) %>% 
+  summarise(promedio_temp_abrigo_150cm = mean(temperatura_abrigo_150cm, na.rm = TRUE))
+
+prom_anual_tem_150cm
+```
+
+## Precipitación acumulada mensual en cada estación
+
+```{r}
+estaciones_meteorologicas <- estaciones_meteorologicas %>%
+  mutate(fecha = as.Date(fecha, format = "%Y-%m-%d"))
+
+estaciones_meteorologicas <- estaciones_meteorologicas %>% 
+  mutate(mes_anio = floor_date(fecha, "month"))
+
+precipitacion_acumulada_mensual <- estaciones_meteorologicas %>%
+  group_by(id, mes_anio) %>%
+  summarise(precipitacion_acumulada_mensual = sum(precipitacion_pluviometrica, na.rm = TRUE))
+
+precipitacion_acumulada_mensual
+```
