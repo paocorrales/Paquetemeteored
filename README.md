@@ -1,0 +1,1 @@
+Este paquete se está llevando a cabo como proyecto universitario de la materia Programación II de la carrera Ciencia de Datos. Estamos aprendiendo, por ende no es material para poder descargar y trabajar en él como usuario random
