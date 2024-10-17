@@ -1,0 +1,20 @@
+---
+title: Cómo usar el paquetemeteored
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{vinieta}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Paquetemeteored)
+```
+Esta es una viñeta, acá se puede mostrar como usar algunas funciones tambien se puede poner ejemplos
