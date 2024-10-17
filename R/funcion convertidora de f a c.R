@@ -1,4 +1,5 @@
 # Trabajar con datos de temperatura que tenemos de convertir de una escala a otra
+
 #' Convierte temperatura de farenheit a centigrados
 #'
 #' La función `convertir_farenheit_a_centigrados` toma una temperatura establecida en farenheit y la convierte a grados celcius.
