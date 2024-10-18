@@ -12,8 +12,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-
-# para verlo renderizado cargo (ctrl+shift+L) y kintteo
+#Para verlo renderizado kinteo
 #Paquetemeteored
 
 <!-- badges: start -->

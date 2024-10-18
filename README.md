@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Paquetemeteored
+\#Para verlo renderizado kinteo \#Paquetemeteored
 
 <!-- badges: start -->
 <!-- badges: end -->
