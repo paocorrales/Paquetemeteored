@@ -14,10 +14,25 @@
 #'
 #' @return
 #' Un grafico de líneas con la temperatura promedio mensual para cada estación.
+#' @examples
+#' datos_clima <- data.frame(
+#'   estacion = rep(c("Verano", "Otoño", "Invierno", "Primavera"), each = 12),
+#'   mes = rep(1:12, times = 4),
+#'   temperatura_abrigo_150cm = runif(48, min = -5, max = 35)  # Temperaturas aleatorias
+#' )
+#'
+#' # Generar el gráfico con los colores por defecto
+#' grafico <- grafico_temperatura_mensual(datos_clima)
+#' print(grafico)
+#'
+#' # Generar el gráfico con colores personalizados
+#' mis_colores <- c("red", "blue", "green", "purple")
+#' grafico_personalizado <- grafico_temperatura_mensual(datos_clima, colores = mis_colores, titulo = "Temperatura Estacional")
+#' print(grafico_personalizado)
 #'
 #' @export
 #'
-#' @examples
+#'
 grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Temperatura") {
   if (is.null(colores)) {
     colores <- sample(colors(), length(unique(datos$mes)))

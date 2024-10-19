@@ -25,3 +25,20 @@ La función \code{grafica_temperatura_mensual} genera un gráfico de líneas que
 \details{
 Se puede personalizar el título del gráfico y los colores de las líneas.
 }
+\examples{
+datos_clima <- data.frame(
+  estacion = rep(c("Verano", "Otoño", "Invierno", "Primavera"), each = 12),
+  mes = rep(1:12, times = 4),
+  temperatura_abrigo_150cm = runif(48, min = -5, max = 35)  # Temperaturas aleatorias
+)
+
+# Generar el gráfico con los colores por defecto
+grafico <- grafico_temperatura_mensual(datos_clima)
+print(grafico)
+
+# Generar el gráfico con colores personalizados
+mis_colores <- c("red", "blue", "green", "purple")
+grafico_personalizado <- grafico_temperatura_mensual(datos_clima, colores = mis_colores, titulo = "Temperatura Estacional")
+print(grafico_personalizado)
+
+}
