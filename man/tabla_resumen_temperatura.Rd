@@ -7,15 +7,29 @@
 tabla_resumen_temperatura(datos)
 }
 \arguments{
-\item{datos}{data.frame de las estaciones en las que queremos resumir sus temperatura abrigo y hacer la tabla resumen}
+\item{datos}{data.frame de las estaciones en las que queremos resumir sus temperatura abrigo y hacer la tabla resumen
+Es obligatorio que sea un data frame, de lo contrario, la función lanzará un mensaje de error.}
 }
 \value{
-Devuelve una tabla en forma de resumen de la temperatura abrigo de las estaciones ingresadas
+Una tabla con el resumen estadístico por estación, incluyendo las siguientes columnas:
+\itemize{
+\item \code{estacion}: Identificador de la estación.
+\item \code{min_temp}: Temperatura mínima registrada para la estación (considerando NA en los datos).
+\item \code{max_temp}: Temperatura máxima registrada para la estación.
+\item \code{mean_temp}: Temperatura media registrada para la estación.
+}
 }
 \description{
-La función \code{tabla_resumen_temperatura} crea una tabla que resume la temperatura_abrigo_150cm para las diferentes estaciones
+La función \code{tabla_resumen_temperatura}  calcula un resumen estadístico (mínimo, máximo y promedio) de la
+temperatura registrada a 150 cm de altura para cada estación.
 }
 \examples{
-tabla_resumen_temperatura(datos)
+# Ejemplo de un data frame de entrada
+datos_ejemplo <- data.frame(
+  estacion = c("Estacion1", "Estacion1", "Estacion2"),
+  temperatura_abrigo_150cm = c(15, 20, 10) )
+
+Generar la tabla de resumen de temperatura
+tabla_resumen_temperatura(datos_ejemplo)
 
 }
