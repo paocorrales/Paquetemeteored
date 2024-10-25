@@ -18,7 +18,7 @@
 #' datos_clima <- data.frame(
 #'   estacion = rep(c("Verano", "Otoño", "Invierno", "Primavera"), each = 12),
 #'   mes = rep(1:12, times = 4),
-#'   temperatura_abrigo_150cm = runif(48, min = -5, max = 35)  # Temperaturas aleatorias
+#'   temperatura_abrigo_150cm = runif(48, min = -5, max = 35)
 #' )
 #'
 #' # Generar el gráfico con los colores por defecto
@@ -26,7 +26,7 @@
 #' print(grafico)
 #'
 #' # Generar el gráfico con colores personalizados
-#' mis_colores <- c("red", "blue", "green", "purple")
+#' colores <- c("red", "blue", "green", "purple")
 #' grafico_personalizado <- grafico_temperatura_mensual(datos_clima, colores = mis_colores, titulo = "Temperatura Estacional")
 #' print(grafico_personalizado)
 #'
