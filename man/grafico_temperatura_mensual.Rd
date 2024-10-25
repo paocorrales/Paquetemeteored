@@ -32,13 +32,12 @@ datos_clima <- data.frame(
   temperatura_abrigo_150cm = runif(48, min = -5, max = 35)
 )
 
-# Generar el gráfico con los colores por defecto
-grafico <- grafico_temperatura_mensual(datos_clima)
-print(grafico)
+ejemplo_1
+ grafico_temperatura_mensual(datos_clima)
 
-# Generar el gráfico con colores personalizados
-colores <- c("red", "blue", "green", "purple")
-grafico_personalizado <- grafico_temperatura_mensual(datos_clima, colores = mis_colores, titulo = "Temperatura Estacional")
-print(grafico_personalizado)
+ejemplo 2
+
+grafico_temperatura_mensual(datos_clima, colores = c("red", "blue", "green", "purple"), titulo = "Temperatura")
+
 
 }
