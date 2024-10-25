@@ -34,7 +34,10 @@
 #'
 #'
 grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Temperatura") {
-  if (is.null(colores)) {
+   if (!is.data.frame(datos)) {
+    cli::cli_abort("El argumento 'datos' debe ser un dataframe.")}
+
+   if (is.null(colores)) {
     colores <- sample(colors(), length(unique(datos$mes)))
   }
 
