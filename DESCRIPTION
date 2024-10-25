@@ -1,5 +1,5 @@
 Package: Paquetemeteored
-Title: What the Package Does (One Line, Title Case)
+Title: Paquete para utilizar con datos meteorólogicos.
 Version: 0.0.0.9000
 Authors@R: 
     person("Angelina", "Luciani", , "angelinaluciani2016@gmail.com", role = c("aut", "cre"),
