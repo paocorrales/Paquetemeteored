@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-\#Para verlo renderizado kinteo \#Paquetemeteored
-
 <!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 ## Introducción
@@ -54,9 +54,3 @@ Se puede instalar la versión de desarrollo de meteored desde GitHub con:
 # install.packages("pak")
 pak::pak("angelina1sys/Paquetemeteored")
 ```
-
-### Ejemplo
-
-This is a basic example which shows you how to solve a common problem:
-
-{r example} library(Paquetemeteored) \## basic example code
