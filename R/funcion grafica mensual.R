@@ -7,46 +7,50 @@
 #'
 #' @param datos data.frame que contiene los datos. Debe incluir las columnas:
 #' `estacion`: Un factor o cadena que indica la estación del año.
-#' `mes`: mes del año de forma numerica.
+#' `mes`: mes del año de forma numerica (id).
 #' `temperatura_abrigo_150cm`: Un valor numérico que indica la temperatura medida.
 #' @param colores en el caso de querer presonalizar los colores del grafico.
 #' @param titulo Un string que especifica el título del gráfico.
 #'
+#' @import ggplot2
+#' @import dplyr
+#' @import lubridate
+#'
 #' @return
 #' Un grafico de líneas con la temperatura promedio mensual para cada estación.
 #' @examples
-#' datos_clima <- data.frame(
-#'   estacion = rep(c("Verano", "Otoño", "Invierno", "Primavera"), each = 12),
-#'   mes = rep(1:12, times = 4),
-#'   temperatura_abrigo_150cm = runif(48, min = -5, max = 35)
-#' )
 #'
-#' ejemplo_1
-#'  grafico_temperatura_mensual(datos_clima)
-#'
-#' ejemplo 2
-#'
-#' grafico_temperatura_mensual(datos_clima, colores = c("red", "blue", "green", "purple"), titulo = "Temperatura")
+#' grafico_temperatura_mensual(NH0910, "pink", "Temperatura")
 #'
 #'
 #' @export
+#'
+#'
 #'
 #'
 grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Temperatura") {
    if (!is.data.frame(datos)) {
     cli::cli_abort("El argumento 'datos' debe ser un dataframe.")}
 
+  datos$fecha <- as.Date(datos$fecha)
    if (is.null(colores)) {
-    colores <- sample(colors(), length(unique(datos$mes)))
+    colores <- sample(colors(), length(unique(datos$id)))
+
+
+
   }
 
   grafico <- datos %>%
-    group_by(estacion, mes) %>%
-    summarise(mean_temp = mean(temperatura_abrigo_150cm, na.rm = TRUE)) %>%
-    ggplot(aes(x = mes, y = mean_temp, color = estacion)) +
+    mutate(mes = month(fecha)) %>%
+    group_by(id, mes) %>%
+    summarise(mean_temp = mean(temperatura_abrigo_150cm, na.rm = TRUE), .groups = 'drop') %>%
+    ggplot(aes(x = mes, y = mean_temp, color = id)) +
     geom_line() +
     scale_color_manual(values = colores) +
     labs(title = titulo, x = "Mes", y = "Temperatura Promedio")
 
   return(grafico)
+
 }
+
+

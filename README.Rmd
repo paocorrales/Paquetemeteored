@@ -52,25 +52,9 @@ pak::pak("angelina1sys/Paquetemeteored")
 ### Ejemplo 
 
 This is a basic example which shows you how to solve a common problem:
+NOS TIRA ERROR 
 
 ```{r example}
+{r example}
 library(Paquetemeteored)
-
-# Ejemplo para tabla_resumen_temperatura
-datos_ejemplo <- data.frame(
-  estacion = c("Estacion1", "Estacion1", "Estacion2"),
-  temperatura_abrigo_150cm = c(15, 20, 10)
-)
-tabla_resumen_temperatura(datos_ejemplo)
-
-# Ejemplo para farenheit_a_centigrados
-farenheit_a_centigrados(90)
-
-# Ejemplo para grafico_temperatura_mensual
-datos_clima <- data.frame(
-  estacion = rep(c("Verano", "Otoño", "Invierno", "Primavera"), each = 12),
-  mes = rep(1:12, times = 4),
-  temperatura_abrigo_150cm = runif(48, min = -5, max = 35)
-)
-grafico_temperatura_mensual(datos_clima)
-
+## basic example code

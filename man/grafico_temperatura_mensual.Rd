@@ -9,7 +9,7 @@ grafico_temperatura_mensual(datos, colores = NULL, titulo = "Temperatura")
 \arguments{
 \item{datos}{data.frame que contiene los datos. Debe incluir las columnas:
 \code{estacion}: Un factor o cadena que indica la estación del año.
-\code{mes}: mes del año de forma numerica.
+\code{mes}: mes del año de forma numerica (id).
 \code{temperatura_abrigo_150cm}: Un valor numérico que indica la temperatura medida.}
 
 \item{colores}{en el caso de querer presonalizar los colores del grafico.}
@@ -26,18 +26,8 @@ La función \code{grafica_temperatura_mensual} genera un gráfico de líneas que
 Se puede personalizar el título del gráfico y los colores de las líneas.
 }
 \examples{
-datos_clima <- data.frame(
-  estacion = rep(c("Verano", "Otoño", "Invierno", "Primavera"), each = 12),
-  mes = rep(1:12, times = 4),
-  temperatura_abrigo_150cm = runif(48, min = -5, max = 35)
-)
 
-ejemplo_1
- grafico_temperatura_mensual(datos_clima)
-
-ejemplo 2
-
-grafico_temperatura_mensual(datos_clima, colores = c("red", "blue", "green", "purple"), titulo = "Temperatura")
+grafico_temperatura_mensual(NH0910, "pink", "Temperatura")
 
 
 }
