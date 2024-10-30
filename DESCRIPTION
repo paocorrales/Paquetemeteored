@@ -1,5 +1,5 @@
 Package: Paquetemeteored
-Title: Paquete para utilizar con datos meteorólogicos.
+Title: Paquete para utilizar con datos meteorólogicos
 Version: 0.0.0.9000
 Authors@R: 
     person("Angelina", "Luciani", , "angelinaluciani2016@gmail.com", role = c("aut", "cre"),
@@ -7,7 +7,7 @@ Authors@R:
     person("Ines", "Medina", , "inesmed004@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: Este paquete no está pensado para ser instalado, es un paquete de
-  juguete para aprender a desarrollar paquetes de R. Por favor no lo instales
+  juguete para aprender a desarrollar paquetes de R. Por favor no lo instales.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -16,12 +16,15 @@ URL: https://github.com/angelina1sys/Paquetemeteored, https://angelina1sys.githu
 BugReports: https://github.com/angelina1sys/Paquetemeteored/issues
 Suggests: 
     knitr,
-    rmarkdown,
-    testthat (>= 3.0.0)
+    rmarkdown
 VignetteBuilder: knitr
 Imports: 
+    cli,
     dplyr,
-    ggplot2
+    ggplot2,
+    lubridate,
+    readr,
+    testthat
 Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)
