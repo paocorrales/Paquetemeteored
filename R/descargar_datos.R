@@ -10,7 +10,7 @@
 #' @import readr
 #' @importFrom utils download.file
 #'
-#' @export
+#' @export descargar_datos
 #'
 #' @examples
 #' descargar_datos("NH0098", "data")

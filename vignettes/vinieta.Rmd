@@ -14,7 +14,49 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+
+```{r, include = FALSE}
 library(Paquetemeteored)
 ```
-Esta es una viñeta, acá se puede mostrar como usar algunas funciones tambien se puede poner ejemplos
+
+
+
+Función gráfico_temperatura_mensual
+
+La función grafico_temperatura_mensual permite generar un gráfico de líneas que muestra la temperatura promedio mensual agrupada por estación. Es útil para visualizar tendencias de temperatura a lo largo del año.
+
+Ejemplo de uso:
+```{r}
+NH0910 <- descargar_datos("NH0910", "data")
+
+grafico_temperatura_mensual(NH0910, colores = "blue", titulo = "Temperatura Promedio Mensual")
+
+```
+
+Función farenheit_a_centigrados
+
+Esta función convierte temperaturas de grados Fahrenheit a grados Celsius. Es útil cuando se trabaja con datos en diferentes sistemas de unidades.
+
+Ejemplo de uso:
+
+```{r}
+farenheit_a_centigrados(90)
+```
+
+Función tabla_resumen_temperatura
+
+La función tabla_resumen_temperatura resume la temperatura de abrigo (150 cm) por estación, mostrando la temperatura mínima, máxima y promedio.
+
+Ejemplo de uso:
+```{r}
+tabla_resumen_temperatura(NH0910)
+```
+
+Función descargar_datos
+
+La función descargar_datos permite descargar los datos meteorológicos de una estación específica. Los IDs de las estaciones disponibles son NH0098, NH0046, NH437, NH472 y NH0910.
+
+Ejemplo de uso:
+```{r}
+descargar_datos("NH0098", "data")
+```

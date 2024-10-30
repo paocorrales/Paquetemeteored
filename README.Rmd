@@ -76,5 +76,7 @@ Nos encantaría recibir contribuciones para mejorar este paquete. Si deseas cola
   - **Angelina Luciani**: [aluciani@mail.austral.edu.ar](mailto:aluciani@mail.austral.edu.ar)
   - **Inés Medina**: [imedina@mail.austral.edu.ar](mailto:imedina@mail.austral.edu.ar)
 
+- Aquí se encuentra nuestro [archivo de contribución](https://github.com/angelina1sys/Paquetemeteored/blob/master/.github/CONTRIBUTING.md).
+
 
 

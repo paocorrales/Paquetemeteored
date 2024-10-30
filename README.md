@@ -87,3 +87,5 @@ deseas colaborar, puedes hacerlo de las siguientes maneras:
   por correo electrónico:
   - **Angelina Luciani**: <aluciani@mail.austral.edu.ar>
   - **Inés Medina**: <imedina@mail.austral.edu.ar>
+- Aquí se encuentra nuestro [archivo de
+  contribución](https://github.com/angelina1sys/Paquetemeteored/blob/master/.github/CONTRIBUTING.md).

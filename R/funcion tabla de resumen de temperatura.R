@@ -36,4 +36,3 @@ tabla_resumen_temperatura <- function(datos) {
   return(resumen)
 }
 
-tabla_resumen_temperatura(NH0910)
