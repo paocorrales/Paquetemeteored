@@ -1,47 +1,56 @@
-# Contributing to Paquetemeteored
+# Contribuyendo a Paquetemeteored
+#
+# Esto describe cómo proponer un cambio en Paquetemeteored. Para una discusión más detallada 
+# sobre cómo contribuir a este y otros paquetes del tidyverse, consulta la 
+# [guía de contribución al desarrollo](https://rstd.io/tidy-contrib) y nuestros 
+# [principios de revisión de código](https://code-review.tidyverse.org/).
 
-This outlines how to propose a change to Paquetemeteored.
-For a detailed discussion on contributing to this and other tidyverse packages, please see the [development contributing guide](https://rstd.io/tidy-contrib) and our [code review principles](https://code-review.tidyverse.org/).
+## Corregir errores tipográficos
 
-## Fixing typos
+# Puedes corregir errores tipográficos, ortográficos o gramaticales en la documentación 
+# directamente usando la interfaz web de GitHub, siempre y cuando los cambios se realicen 
+# en el archivo _fuente_. Esto generalmente significa que necesitarás editar los 
+# [comentarios roxygen2](https://roxygen2.r-lib.org/articles/roxygen2.html) en un archivo `.R`, 
+# no en un archivo `.Rd`. Puedes encontrar el archivo `.R` que genera el `.Rd` leyendo 
+# el comentario en la primera línea.
 
-You can fix typos, spelling mistakes, or grammatical errors in the documentation directly using the GitHub web interface, as long as the changes are made in the _source_ file. 
-This generally means you'll need to edit [roxygen2 comments](https://roxygen2.r-lib.org/articles/roxygen2.html) in an `.R`, not a `.Rd` file. 
-You can find the `.R` file that generates the `.Rd` by reading the comment in the first line.
+## Cambios más grandes
 
-## Bigger changes
+# Si deseas realizar un cambio más grande, es recomendable primero crear un issue y 
+# asegurarte de que alguien del equipo esté de acuerdo en que es necesario. Si has 
+# encontrado un error (bug), por favor crea un issue que ilustre el error con un 
+# [reprex](https://www.tidyverse.org/help/#reprex) mínimo (esto también te ayudará a escribir 
+# una prueba unitaria, si es necesario). Consulta nuestra guía sobre 
+# [cómo crear un buen issue](https://code-review.tidyverse.org/issues/) para más consejos.
 
-If you want to make a bigger change, it's a good idea to first file an issue and make sure someone from the team agrees that it’s needed. 
-If you’ve found a bug, please file an issue that illustrates the bug with a minimal 
-[reprex](https://www.tidyverse.org/help/#reprex) (this will also help you write a unit test, if needed).
-See our guide on [how to create a great issue](https://code-review.tidyverse.org/issues/) for more advice.
+### Proceso para pull request
 
-### Pull request process
+# * Haz un fork del paquete y clónalo en tu computadora. Si no has hecho esto antes, 
+#   te recomendamos usar `usethis::create_from_github("angelina1sys/Paquetemeteored", fork = TRUE)`.
+# * Instala todas las dependencias de desarrollo con `devtools::install_dev_deps()`, 
+#   y luego asegúrate de que el paquete pasa R CMD check ejecutando `devtools::check()`. 
+#   Si R CMD check no pasa sin problemas, es buena idea pedir ayuda antes de continuar.
+# * Crea una rama de Git para tu pull request (PR). Recomendamos usar `usethis::pr_init("descripcion-breve-del-cambio")`.
+# * Haz tus cambios, haz commit en git, y luego crea un PR ejecutando `usethis::pr_push()`, 
+#   y siguiendo las indicaciones en tu navegador. El título de tu PR debe describir brevemente el cambio. 
+#   El cuerpo de tu PR debe contener `Fixes #numero-del-issue`.
+# * Para cambios visibles al usuario, agrega un bullet al principio de `NEWS.md` 
+#   (es decir, justo debajo del primer encabezado). Sigue el estilo descrito en 
+#   <https://style.tidyverse.org/news.html>.
 
-*   Fork the package and clone onto your computer. If you haven't done this before, we recommend using `usethis::create_from_github("angelina1sys/Paquetemeteored", fork = TRUE)`.
+### Estilo del código
 
-*   Install all development dependencies with `devtools::install_dev_deps()`, and then make sure the package passes R CMD check by running `devtools::check()`. 
-    If R CMD check doesn't pass cleanly, it's a good idea to ask for help before continuing. 
-*   Create a Git branch for your pull request (PR). We recommend using `usethis::pr_init("brief-description-of-change")`.
+# * El nuevo código debe seguir la [guía de estilo](https://style.tidyverse.org) del tidyverse. 
+#   Puedes usar el paquete [styler](https://CRAN.R-project.org/package=styler) para aplicar estos estilos, 
+#   pero por favor no restyles el código que no esté relacionado con tu PR.
+# * Usamos [roxygen2](https://cran.r-project.org/package=roxygen2), con 
+#   [sintaxis de Markdown](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html), 
+#   para la documentación.
+# * Usamos [testthat](https://cran.r-project.org/package=testthat) para pruebas unitarias. 
+#   Las contribuciones que incluyan casos de prueba son más fáciles de aceptar.
 
-*   Make your changes, commit to git, and then create a PR by running `usethis::pr_push()`, and following the prompts in your browser.
-    The title of your PR should briefly describe the change.
-    The body of your PR should contain `Fixes #issue-number`.
+## Código de conducta
 
-*  For user-facing changes, add a bullet to the top of `NEWS.md` (i.e. just below the first header). Follow the style described in <https://style.tidyverse.org/news.html>.
-
-### Code style
-
-*   New code should follow the tidyverse [style guide](https://style.tidyverse.org). 
-    You can use the [styler](https://CRAN.R-project.org/package=styler) package to apply these styles, but please don't restyle code that has nothing to do with your PR.  
-
-*  We use [roxygen2](https://cran.r-project.org/package=roxygen2), with [Markdown syntax](https://cran.r-project.org/web/packages/roxygen2/vignettes/rd-formatting.html), for documentation.  
-
-*  We use [testthat](https://cran.r-project.org/package=testthat) for unit tests. 
-   Contributions with test cases included are easier to accept.  
-
-## Code of Conduct
-
-Please note that the Paquetemeteored project is released with a
-[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this
-project you agree to abide by its terms.
+# Por favor, ten en cuenta que el proyecto Paquetemeteored se publica con un 
+# [Código de Conducta para Contribuyentes](CODE_OF_CONDUCT.md). Al contribuir a este proyecto, 
+# aceptas cumplir con sus términos.

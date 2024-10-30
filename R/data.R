@@ -1,16 +1,83 @@
-#' Conjunto de datos (documentacion de datos del dataset)
+#' Descripción del dataset NH0910.
 #'
-#' Los datos son utilizados para analizar condiciones climáticas.
+#' @format Un data frame con las siguientes columnas:
+#' \describe{
+#'   \item{Fecha}{Fecha de la observación.}
+#'   \item{Temperatura}{Temperatura registrada (en grados Celsius).}
+#'   \item{Humedad}{Porcentaje de humedad relativa.}
+#'   \item{Viento}{Velocidad del viento (en km/h).}
+#'   \item{Presion}{Presión atmosférica (en hPa).}
+#' }
+#' @source https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0910.csv
+"NH0910"
+
+#' NH0472 Dataset
 #'
-#' @format Los datos son reales, obtenidos a partir de una pagina web.
-#' \describe { #aca adentro se describe cada una de las variables del dataset
-#' \item{a}{aca escribo lo que significa a}
-#' \item{b}{aca escribo lo que significa b}
+#' Descripción del dataset NH0472.
+#'
+#' @format Un data frame con las siguientes columnas:
+#' \describe{
+#'   \item{Fecha}{Fecha de la observación.}
+#'   \item{Temperatura}{Temperatura registrada (en grados Celsius).}
+#'   \item{Humedad}{Porcentaje de humedad relativa.}
+#'   \item{Precipitacion}{Precipitación (en mm).}
 #' }
 #'
-#' @source aca va el link de fuente de los datos
-#' "aca va el nombre del dataset, asi entre comillas
-#' esto se hace cada vez que termino de documentar los datos"
+#' @source https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0472.csv
+"NH0472"
+
+#' NH0437 Dataset
 #'
-#' si tengo varios dataset dejo espacios y vuelvo a repetir toda la descripcion
-##### para ver esto levantado onda html tengo que hacer en la consola ?y el nombre de los datos documentado
+#' Descripción del dataset NH0437.
+#'
+#' @format Un data frame con las siguientes columnas:
+#' \describe{
+#'   \item{Fecha}{Fecha de la observación.}
+#'   \item{Temperatura_Maxima}{Temperatura máxima registrada (en grados Celsius).}
+#'   \item{Temperatura_Minima}{Temperatura mínima registrada (en grados Celsius).}
+#'   \item{Radiacion}{Radiación solar (en W/m²).}
+#' }
+#' @source https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0437.csv
+"NH0437"
+
+#' NH0098 Dataset
+#'
+#' Descripción del dataset NH0098.
+#'
+#' @format Un data frame con las siguientes columnas:
+#' \describe{
+#'   \item{Fecha}{Fecha de la observación.}
+#'   \item{Temperatura}{Temperatura registrada (en grados Celsius).}
+#'   \item{Punto_Rocio}{Punto de rocío (en grados Celsius).}
+#'   \item{Viento}{Velocidad del viento (en km/h).}
+#' }
+#' @source https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0098.csv
+"NH0098"
+
+#' NH0046 Dataset
+#'
+#' Descripción del dataset NH0046.
+#'
+#' @format Un data frame con las siguientes columnas:
+#' \describe{
+#'   \item{Fecha}{Fecha de la observación.}
+#'   \item{Temperatura}{Temperatura registrada (en grados Celsius).}
+#'   \item{Humedad}{Porcentaje de humedad relativa.}
+#'   \item{Presion}{Presión atmosférica (en hPa).}
+#' }
+#' @source https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/NH0046.csv
+"NH0046"
+
+#' Metadatos Completos Dataset
+#'
+#' Descripción del dataset de metadatos completos.
+#'
+#' @format Un data frame con las siguientes columnas:
+#' \describe{
+#'   \item{ID}{Identificador del dataset.}
+#'   \item{Variable}{Nombre de la variable en el dataset.}
+#'   \item{Descripcion}{Descripción de la variable.}
+#'   \item{Unidad}{Unidad de medida de la variable.}
+#' }
+#' @source https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/metadatos_completos.csv
+"metadatos_completos"

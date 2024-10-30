@@ -18,13 +18,7 @@
 #' @export
 #'
 #' @examples
-#' # Ejemplo de un data frame de entrada
-#' datos_ejemplo <- data.frame(
-#'   estacion = c("Estacion1", "Estacion1", "Estacion2"),
-#'   temperatura_abrigo_150cm = c(15, 20, 10) )
-#'
-#' Generar la tabla de resumen de temperatura
-#' tabla_resumen_temperatura(datos_ejemplo)
+#' tabla_resumen_temperatura(NH0910)
 #'
 #' @export
 #'
@@ -33,7 +27,7 @@ tabla_resumen_temperatura <- function(datos) {
     cli::cli_abort("El argumento 'datos' debe ser un dataframe.")
   }
   resumen <- datos %>%
-    group_by(estacion) %>%
+    group_by(id) %>%
     summarise(
       min_temp = min(temperatura_abrigo_150cm, na.rm = TRUE),
       max_temp = max(temperatura_abrigo_150cm, na.rm = TRUE),
@@ -41,3 +35,5 @@ tabla_resumen_temperatura <- function(datos) {
     )
   return(resumen)
 }
+
+tabla_resumen_temperatura(NH0910)

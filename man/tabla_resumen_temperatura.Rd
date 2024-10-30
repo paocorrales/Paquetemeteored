@@ -24,12 +24,6 @@ La función \code{tabla_resumen_temperatura}  calcula un resumen estadístico (m
 temperatura registrada a 150 cm de altura para cada estación.
 }
 \examples{
-# Ejemplo de un data frame de entrada
-datos_ejemplo <- data.frame(
-  estacion = c("Estacion1", "Estacion1", "Estacion2"),
-  temperatura_abrigo_150cm = c(15, 20, 10) )
-
-Generar la tabla de resumen de temperatura
-tabla_resumen_temperatura(datos_ejemplo)
+tabla_resumen_temperatura(NH0910)
 
 }

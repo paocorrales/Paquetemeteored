@@ -16,7 +16,6 @@
 #'
 #' @export
 #'
-
 farenheit_a_centigrados <- function(temperatura_fahrenheit) {
   if (!is.numeric(temperatura_fahrenheit)){
     cli::cli_abort(c(
@@ -26,4 +25,5 @@ farenheit_a_centigrados <- function(temperatura_fahrenheit) {
   }
   (temperatura_fahrenheit - 32) * 5/9
 }
+
 

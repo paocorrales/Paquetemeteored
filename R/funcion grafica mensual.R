@@ -28,6 +28,7 @@
 #'
 #'
 #'
+#'
 grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Temperatura") {
    if (!is.data.frame(datos)) {
     cli::cli_abort("El argumento 'datos' debe ser un dataframe.")}
@@ -53,4 +54,7 @@ grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Tempera
 
 }
 
-grafico_temperatura_mensual(NH0910, "pink", "Temperatura")
+
+
+
+
