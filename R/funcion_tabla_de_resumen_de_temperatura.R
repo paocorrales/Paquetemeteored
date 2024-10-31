@@ -19,7 +19,7 @@
 #'
 #' @examples
 #' tabla_resumen_temperatura(NH0910)
-#'?
+#'
 #' @export
 #'
 tabla_resumen_temperatura <- function(datos) {

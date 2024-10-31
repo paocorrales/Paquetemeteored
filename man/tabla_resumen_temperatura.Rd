@@ -25,5 +25,5 @@ temperatura registrada a 150 cm de altura para cada estación.
 }
 \examples{
 tabla_resumen_temperatura(NH0910)
-
+?
 }
