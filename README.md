@@ -1,16 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Meteored
-
-<a href="Meteored">
-<img src="man/logo.png" alt="logo" style="float: right; margin-left: 10px;" width="200"/>
-</a>
+# Meteored <img src="man/logo.png" align="right" width="200"/>
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+\[![R-CMD-check](https://github.com/Angelina1sys/Paquetemeteored/actions/workflows/R-CMD-check.yaml/badge.svg)
 
 <!-- badges: end -->
 
