@@ -8,7 +8,6 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 \[![R-CMD-check](https://github.com/Angelina1sys/Paquetemeteored/actions/workflows/R-CMD-check.yaml/badge.svg)
-
 [![Codecov test
 coverage](https://codecov.io/gh/angelina1sys/Paquetemeteored/graph/badge.svg)](https://app.codecov.io/gh/angelina1sys/Paquetemeteored)
 <!-- badges: end -->
@@ -44,6 +43,9 @@ Este paquete ha sido desarrollado por:
     Fahrenheit a Celsius.
 3.  **`grafico_temperatura_mensual`**: Genera un gráfico de líneas con
     las temperaturas promedio mensuales agrupadas por estación.
+4.  **`descargar_datos`**: Descarga un archivo CSV con datos
+    meteorológicos de una estación específica, dada por su ID, y lo
+    guarda en el directorio indicado.
 
 ### ¿Para quién es útil?
 

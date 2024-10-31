@@ -47,6 +47,7 @@ Este paquete ha sido desarrollado por:
 1. **`tabla_resumen_temperatura`**: Crea una tabla de resumen con el valor mínimo, máximo y promedio de la temperatura registrada a 150 cm de altura para cada estación.
 2. **`farenheit_a_centigrados`**: Convierte un valor de temperatura de Fahrenheit a Celsius.
 3. **`grafico_temperatura_mensual`**: Genera un gráfico de líneas con las temperaturas promedio mensuales agrupadas por estación.
+4.  **`descargar_datos`**: Descarga un archivo CSV con datos meteorológicos de una estación específica, dada por su ID, y lo guarda en el directorio indicado.
  
 ### ¿Para quién es útil?
 
