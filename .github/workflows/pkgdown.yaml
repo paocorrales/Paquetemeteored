@@ -1,43 +1,23 @@
-# Workflow for R CMD check and pkgdown
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
-
 on:
   push:
     branches: [main, master]
   pull_request:
     branches: [main, master]
-  release:
-    types: [published]
-  workflow_dispatch:
 
-name: R-CMD-check
+name: test-coverage.yaml
 
-permissions: read-all
+permissions: write-all  # Cambiado a 'write-all' para permitir el upload de resultados de Codecov
 
 jobs:
-  R-CMD-check:
+  test-coverage:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup R
-        uses: r-lib/actions/setup-r@v2
-
-      - name: Install dependencies
-        run: |
-          install.packages('devtools')
-          devtools::install_deps(dependencies = TRUE)
-
-      - name: Run R CMD check
-        run: R CMD check --as-cran .
-
-  pkgdown:
-    runs-on: ubuntu-latest
-    needs: R-CMD-check  # Esto asegura que pkgdown se ejecute después de R CMD check
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: r-lib/actions/setup-pandoc@v2
 
       - uses: r-lib/actions/setup-r@v2
         with:
@@ -45,17 +25,40 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::pkgdown, local::.
+          extra-packages: any::covr, any::xml2
+          needs: coverage
 
-      - name: Build site
-        run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
+      - name: Test coverage
+        run: |
+          cov <- covr::package_coverage(
+            quiet = FALSE,
+            clean = FALSE,
+            install_path = file.path(normalizePath(Sys.getenv("RUNNER_TEMP"), winslash = "/"), "package")
+          )
+          covr::to_cobertura(cov)
         shell: Rscript {0}
 
-      - name: Deploy to GitHub Pages 🚀
-        if: github.event_name != 'pull_request'
-        run: pkgdown::deploy_site_github()
-ses: JamesIves/github-pages-deploy-action@v4.5.0
+      - name: Check if cobertura.xml exists  # Paso para verificar que cobertura.xml se genera correctamente
+        run: ls -la ./cobertura.xml
+
+      - uses: codecov/codecov-action@v4
         with:
-          clean: false
-          branch: gh-pages
-          folder: docs
+          fail_ci_if_error: true
+          file: ./cobertura.xml
+          plugin: noop
+          disable_search: true
+          token: ${{ secrets.CODECOV_TOKEN }}  # Mantener este campo si el repo es privado
+
+      - name: Show testthat output
+        if: always()
+        run: |
+          ## --------------------------------------------------------------------
+          find '${{ runner.temp }}/package' -name 'testthat.Rout*' -exec cat '{}' \; || true
+        shell: bash
+
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-test-failures
+          path: ${{ runner.temp }}/package
