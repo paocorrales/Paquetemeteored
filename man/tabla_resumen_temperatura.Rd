@@ -7,21 +7,36 @@
 tabla_resumen_temperatura(datos)
 }
 \arguments{
-\item{datos}{data.frame de las estaciones en las que queremos resumir sus temperatura abrigo y hacer la tabla resumen
-Es obligatorio que sea un data frame, de lo contrario, la función lanzará un mensaje de error.}
+\item{datos}{Un \code{data.frame} que contiene las estaciones y las temperaturas registradas.
+Debe incluir al menos las columnas \code{id} y \code{temperatura_abrigo_150cm}.}
 }
 \value{
-Una tabla con el resumen estadístico por estación, incluyendo las siguientes columnas:
+Un \code{data.frame} que contiene el resumen estadístico por estación con las siguientes columnas:
 \itemize{
-\item \code{estacion}: Identificador de la estación.
-\item \code{min_temp}: Temperatura mínima registrada para la estación (considerando NA en los datos).
+\item \code{id}: Identificador de la estación.
+\item \code{min_temp}: Temperatura mínima registrada para la estación (excluyendo valores faltantes).
 \item \code{max_temp}: Temperatura máxima registrada para la estación.
-\item \code{mean_temp}: Temperatura media registrada para la estación.
+\item \code{mean_temp}: Temperatura promedio registrada para la estación.
 }
 }
 \description{
-La función \code{tabla_resumen_temperatura}  calcula un resumen estadístico (mínimo, máximo y promedio) de la
-temperatura registrada a 150 cm de altura para cada estación.
+La función \code{tabla_resumen_temperatura} genera un resumen estadístico por estación para la temperatura registrada a 150 cm de altura. El resumen incluye el valor mínimo, máximo y promedio de las temperaturas registradas en el conjunto de datos proporcionado. Esta función es útil para analizar tendencias y variabilidad de las temperaturas por estación.
+}
+\details{
+La función realiza las siguientes operaciones:
+\itemize{
+\item Agrupa los datos por el identificador de la estación (\code{id}).
+\item Calcula las estadísticas básicas (mínimo, máximo y promedio) para la columna \code{temperatura_abrigo_150cm}.
+\item Maneja valores faltantes (\code{NA}) excluyéndolos del cálculo mediante el argumento \code{na.rm = TRUE}.
+}
+
+El data frame de entrada debe contener al menos las siguientes columnas:
+\itemize{
+\item \code{id}: Identificador único para cada estación o grupo.
+\item \code{temperatura_abrigo_150cm}: Un valor numérico que representa las temperaturas registradas a 150 cm de altura.
+}
+
+Si el argumento \code{datos} no es un data frame, la función lanzará un error y no procederá.
 }
 \examples{
 tabla_resumen_temperatura(NH0910)

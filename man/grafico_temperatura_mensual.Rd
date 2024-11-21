@@ -7,27 +7,25 @@
 grafico_temperatura_mensual(datos, colores = NULL, titulo = "Temperatura")
 }
 \arguments{
-\item{datos}{data.frame que contiene los datos. Debe incluir las columnas:
-\code{estacion}: Un factor o cadena que indica la estación del año.
-\code{mes}: mes del año de forma numerica (id).
-\code{temperatura_abrigo_150cm}: Un valor numérico que indica la temperatura medida.}
+\item{datos}{Un \code{data.frame} que contiene los datos a graficar. Debe incluir las columnas \code{id}, \code{fecha} y \code{temperatura_abrigo_150cm}.}
 
-\item{colores}{en el caso de querer presonalizar los colores del grafico.}
+\item{colores}{Un vector de colores personalizados para las líneas del gráfico. Si no se proporciona, se generarán colores aleatorios.}
 
-\item{titulo}{Un string que especifica el título del gráfico.}
+\item{titulo}{Un string que especifica el título del gráfico. Por defecto es "Temperatura".}
 }
 \value{
-Un grafico de líneas con la temperatura promedio mensual para cada estación.
+Un objeto de clase \code{ggplot} que representa un gráfico de líneas con la temperatura promedio mensual para cada estación.
 }
 \description{
-La función \code{grafica_temperatura_mensual} genera un gráfico de líneas que muestra la temperatura promedio mensual agrupada por estación.
+La función \code{grafico_temperatura_mensual} genera un gráfico de líneas que muestra la evolución de la temperatura promedio mensual agrupada por estaciones. El gráfico es altamente personalizable, permitiendo modificar los colores asignados a cada estación y el título del gráfico.
 }
 \details{
-Se puede personalizar el título del gráfico y los colores de las líneas.
+Esta función procesa los datos ingresados para calcular la temperatura promedio mensual agrupada por estación (\code{id}). Los valores de temperatura se agrupan por mes y estación, se calcula el promedio mensual y se genera un gráfico de líneas. Si no se especifican colores, la función selecciona automáticamente colores aleatorios para las líneas del gráfico.
+
+Las columnas requeridas en el data frame de entrada (\code{datos}) son:
+\itemize{
+\item \code{id}: Un identificador único para cada estación o grupo.
+\item \code{fecha}: Una columna de tipo fecha (\code{Date}) que indica la fecha de la medición.
+\item \code{temperatura_abrigo_150cm}: Una columna numérica que contiene los valores de temperatura.
 }
-\examples{
-
-grafico_temperatura_mensual(NH0910, "pink", "Temperatura")
-
-
 }

@@ -1,29 +1,23 @@
 #' Creación de gráfico de temperatura promedio mensual por estación
 #'
-#' La función `grafica_temperatura_mensual` genera un gráfico de líneas que muestra la temperatura promedio mensual agrupada por estación.
+#' La función `grafico_temperatura_mensual` genera un gráfico de líneas que muestra la evolución de la temperatura promedio mensual agrupada por estaciones. El gráfico es altamente personalizable, permitiendo modificar los colores asignados a cada estación y el título del gráfico.
+#'
 #' @details
-#' Se puede personalizar el título del gráfico y los colores de las líneas.
+#' Esta función procesa los datos ingresados para calcular la temperatura promedio mensual agrupada por estación (`id`). Los valores de temperatura se agrupan por mes y estación, se calcula el promedio mensual y se genera un gráfico de líneas. Si no se especifican colores, la función selecciona automáticamente colores aleatorios para las líneas del gráfico.
 #'
+#' Las columnas requeridas en el data frame de entrada (`datos`) son:
+#' - `id`: Un identificador único para cada estación o grupo.
+#' - `fecha`: Una columna de tipo fecha (`Date`) que indica la fecha de la medición.
+#' - `temperatura_abrigo_150cm`: Una columna numérica que contiene los valores de temperatura.
 #'
-#' @param datos data.frame que contiene los datos. Debe incluir las columnas:
-#' `estacion`: Un factor o cadena que indica la estación del año.
-#' `mes`: mes del año de forma numerica (id).
-#' `temperatura_abrigo_150cm`: Un valor numérico que indica la temperatura medida.
-#' @param colores en el caso de querer presonalizar los colores del grafico.
-#' @param titulo Un string que especifica el título del gráfico.
+#' @param datos Un `data.frame` que contiene los datos a graficar. Debe incluir las columnas `id`, `fecha` y `temperatura_abrigo_150cm`.
+#' @param colores Un vector de colores personalizados para las líneas del gráfico. Si no se proporciona, se generarán colores aleatorios.
+#' @param titulo Un string que especifica el título del gráfico. Por defecto es "Temperatura".
 #'
-#' @import ggplot2
-#' @import dplyr
-#' @import lubridate
+
 #'
 #' @return
-#' Un grafico de líneas con la temperatura promedio mensual para cada estación.
-#' @examples
-#'
-#' grafico_temperatura_mensual(NH0910, "pink", "Temperatura")
-#'
-#'
-#' @export
+#' Un objeto de clase `ggplot` que representa un gráfico de líneas con la temperatura promedio mensual para cada estación.
 #'
 #'
 #'

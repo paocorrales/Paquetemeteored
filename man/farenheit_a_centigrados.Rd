@@ -2,20 +2,33 @@
 % Please edit documentation in R/funcion_convertidora_de_f_a_c.R
 \name{farenheit_a_centigrados}
 \alias{farenheit_a_centigrados}
-\title{Convierte temperatura de farenheit a centigrados}
+\title{Convertir temperatura de Fahrenheit a Celsius}
 \usage{
 farenheit_a_centigrados(temperatura_fahrenheit)
 }
 \arguments{
-\item{temperatura_fahrenheit}{numerico. Valor de temperatura en grados Fahrenheit que se desea convertir a grados Celsius.
-Debe ser un valor numérico; de lo contrario, la función devolverá un mensaje de error.}
+\item{temperatura_fahrenheit}{numérico. Valor de la temperatura en grados Fahrenheit que se desea convertir.
+Debe ser un número real (positivo, negativo o cero). Si el argumento proporcionado no es numérico, la función arrojará un error claro y detallado.}
 }
 \value{
-Un vector numérico que es el valor de la temperatura en grados celcius
-Si el valor de \code{temperatura_fahrenheit} no es numérico, la función lanza un error detallado.
+Devuelve un vector numérico con el valor convertido en grados Celsius.
+Si el valor de entrada es un vector de temperaturas en Fahrenheit, la función aplicará la conversión a cada elemento del vector.
 }
 \description{
-La función \code{farenheit_a_centigrados} convierte un valor de temperatura de grados Fahrenheit a grados Celsius.
+La función farenheit_a_centigrados convierte un valor de temperatura dado en grados Fahrenheit a su equivalente en grados Celsius.
+Es útil para aplicaciones científicas, meteorológicas o en cualquier situación en la que se requiera este tipo de conversión.
+}
+\details{
+La fórmula utilizada para la conversión es:
+\deqn{C = (F - 32) * \frac{5}{9}}
+donde:
+\itemize{
+\item \eqn{F} es el valor en grados Fahrenheit ingresado como argumento.
+\item \eqn{C} es el valor resultante en grados Celsius.
+}
+
+Esta función valida que el argumento proporcionado sea de tipo numérico.
+Si el usuario proporciona un valor no numérico, como un carácter, un factor o una lista, se mostrará un mensaje de error detallado indicando el tipo de dato ingresado.
 }
 \examples{
 #convertir 90 grados fahrenheit a celsius

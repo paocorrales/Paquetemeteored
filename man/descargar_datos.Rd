@@ -2,22 +2,41 @@
 % Please edit documentation in R/descargar_datos.R
 \name{descargar_datos}
 \alias{descargar_datos}
-\title{Descargar datos meteorológicos}
+\title{Descargar datos meteorológicos de una estación específica}
 \usage{
 descargar_datos(id_estacion, directorio_destino)
 }
 \arguments{
-\item{id_estacion}{ID de la estación.}
+\item{id_estacion}{Un string que representa el ID de la estación meteorológica. Los valores válidos son: "NH0098", "NH0046", "NH437", "NH472", y "NH0910".}
 
-\item{directorio_destino}{Directorio donde se guardará el archivo CSV.}
+\item{directorio_destino}{Un string que especifica el directorio donde se guardará el archivo CSV descargado. Si el directorio no existe, será creado automáticamente. Si el nombre del directorio coincide con un archivo existente, se lanzará un error.}
 }
 \value{
-Un archivo CSV con los datos meteorológicos de la estación con el ID ingresado.
+Un objeto de clase \code{tibble} que contiene los datos meteorológicos de la estación correspondiente. Los datos son leídos directamente del archivo CSV descargado.
 }
 \description{
-La función \code{descargar_datos} toma el ID de una estación y un directorio de destino, y descarga en dicha ubicación un archivo CSV con los datos meteorológicos de la estación correspondiente. Los IDs posibles son: NH0098, NH0046, NH437, NH472 y NH0910.
+La función \code{descargar_datos} permite descargar datos meteorológicos correspondientes a una estación específica, identificada por su ID único, y los almacena en un archivo CSV en el directorio especificado. Los datos se obtienen desde una pagina web. Esta función también verifica la validez del directorio destino, crea el directorio si no existe y maneja errores relacionados con conflictos de nombres.
+}
+\details{
+La función realiza los siguientes pasos:
+\enumerate{
+\item Verifica si el \code{directorio_destino} ya existe como un archivo y detiene la ejecución si ese es el caso.
+\item Crea el directorio especificado si no existe.
+\item Construye la URL del archivo CSV correspondiente al ID de la estación.
+\item Descarga el archivo CSV desde la URL y lo almacena en el directorio especificado.
+\item Lee el archivo CSV descargado utilizando \code{read_csv} y lo devuelve como un dataframe.
+}
 }
 \examples{
+# Descargar datos de la estación NH0098 en el directorio "data"
+datos <- descargar_datos("NH0098", "data")
+
+# Descargar datos de la estación NH0910 en el directorio "data"
+datos <- descargar_datos("NH0910", "data")
+
+# Intentar descargar en un directorio que ya existe como archivo (error esperado)
+# descargar_datos("NH0098", "archivo_existente.csv")
+
 descargar_datos("NH0098", "data")
 descargar_datos("NH0910", "data")
 }
