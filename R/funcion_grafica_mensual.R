@@ -35,8 +35,9 @@ grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Tempera
 
   }
 
+
   grafico <- datos %>%
-    dplyr::mutate(mes = month(fecha)) %>%
+    dplyr::mutate(mes = lubridate::month(fecha)) %>%
     dplyr::group_by(id, mes) %>%
     dplyr::summarise(mean_temp = mean(temperatura_abrigo_150cm, na.rm = TRUE), .groups = 'drop') %>%
     ggplot2::ggplot(aes(x = mes, y = mean_temp, color = id)) +

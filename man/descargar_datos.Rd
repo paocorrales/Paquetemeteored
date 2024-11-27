@@ -24,7 +24,7 @@ La función realiza los siguientes pasos:
 \item Crea el directorio especificado si no existe.
 \item Construye la URL del archivo CSV correspondiente al ID de la estación.
 \item Descarga el archivo CSV desde la URL y lo almacena en el directorio especificado.
-\item Lee el archivo CSV descargado utilizando \code{read_csv} y lo devuelve como un dataframe.
+\item Lee el archivo CSV descargado utilizando \code{read.csv} y lo devuelve como un dataframe.
 }
 }
 \examples{

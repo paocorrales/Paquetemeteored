@@ -11,7 +11,7 @@
 #' 2. Crea el directorio especificado si no existe.
 #' 3. Construye la URL del archivo CSV correspondiente al ID de la estación.
 #' 4. Descarga el archivo CSV desde la URL y lo almacena en el directorio especificado.
-#' 5. Lee el archivo CSV descargado utilizando `read_csv` y lo devuelve como un dataframe.
+#' 5. Lee el archivo CSV descargado utilizando `read.csv` y lo devuelve como un dataframe.
 #'
 #' @return
 #' Un objeto de clase `tibble` que contiene los datos meteorológicos de la estación correspondiente. Los datos son leídos directamente del archivo CSV descargado.
@@ -53,7 +53,7 @@ descargar_datos <- function(id_estacion, directorio_destino) {
   download.file(url = estacion_url, destfile = ruta_archivo)
 
   # Leer el archivo CSV
-  datos <- read_csv(ruta_archivo)
+  datos <- read.csv(ruta_archivo)
 
   return(datos)
 }
