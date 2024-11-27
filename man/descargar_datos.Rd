@@ -28,15 +28,6 @@ La función realiza los siguientes pasos:
 }
 }
 \examples{
-# Descargar datos de la estación NH0098 en el directorio "data"
-datos <- descargar_datos("NH0098", "data")
-
-# Descargar datos de la estación NH0910 en el directorio "data"
-datos <- descargar_datos("NH0910", "data")
-
-# Intentar descargar en un directorio que ya existe como archivo (error esperado)
-# descargar_datos("NH0098", "archivo_existente.csv")
-
-descargar_datos("NH0098", "data")
-descargar_datos("NH0910", "data")
+descargar_datos("NH0098", "data_raw")
+descargar_datos("NH0910", "data_raw")
 }

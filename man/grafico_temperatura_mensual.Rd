@@ -29,3 +29,9 @@ Las columnas requeridas en el data frame de entrada (\code{datos}) son:
 \item \code{temperatura_abrigo_150cm}: Una columna numérica que contiene los valores de temperatura.
 }
 }
+\examples{
+colores_personalizados <- c("pink", "blue", "green", "yellow", "red")
+grafico_temperatura_mensual(metadatos_completos, colores_personalizados, "Temperatura")
+
+
+}

@@ -4,7 +4,7 @@ union_datasets <- function(ids_estaciones) {
 
   metadatos_completos <- data.frame()
   for (id in ids_estaciones) {
-    datos <- descargar_datos(id)
+    datos <- descargar_datos(id, "data_raw")
     metadatos_completos <- rbind(metadatos_completos, datos)
   }
 

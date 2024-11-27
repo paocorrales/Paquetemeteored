@@ -19,19 +19,8 @@
 #' @export descargar_datos
 #'
 #' @examples
-#' # Descargar datos de la estación NH0098 en el directorio "data"
-#' datos <- descargar_datos("NH0098", "data")
-#'
-#' # Descargar datos de la estación NH0910 en el directorio "data"
-#' datos <- descargar_datos("NH0910", "data")
-#'
-#' # Intentar descargar en un directorio que ya existe como archivo (error esperado)
-#' # descargar_datos("NH0098", "archivo_existente.csv")
-
-#'
-#' @examples
-#' descargar_datos("NH0098", "data")
-#' descargar_datos("NH0910", "data")
+#' descargar_datos("NH0098", "data_raw")
+#' descargar_datos("NH0910", "data_raw")
 descargar_datos <- function(id_estacion, directorio_destino) {
   url_repositorio <- "https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/"
   estacion_url <- paste0(url_repositorio, id_estacion, ".csv")

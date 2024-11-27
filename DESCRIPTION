@@ -22,9 +22,11 @@ Imports:
     cli,
     dplyr,
     ggplot2,
+    grDevices,
     lubridate,
-    readr,
-    testthat
+    magrittr,
+    testthat,
+    utils
 Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)

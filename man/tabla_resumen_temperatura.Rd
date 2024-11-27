@@ -39,6 +39,8 @@ El data frame de entrada debe contener al menos las siguientes columnas:
 Si el argumento \code{datos} no es un data frame, la función lanzará un error y no procederá.
 }
 \examples{
-tabla_resumen_temperatura(NH0910)
+data(metadatos_completos)
+tabla_resumen_temperatura(metadatos_completos)
+
 
 }

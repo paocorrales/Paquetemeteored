@@ -5,7 +5,7 @@
 \alias{metadatos_completos}
 \title{Metadatos Completos Dataset}
 \format{
-An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 258 rows and 11 columns.
+An object of class \code{data.frame} with 95681 rows and 35 columns.
 }
 \source{
 https://raw.githubusercontent.com/rse-r/intro-programacion/main/datos/metadatos_completos.csv

@@ -19,7 +19,12 @@
 #' @return
 #' Un objeto de clase `ggplot` que representa un gráfico de líneas con la temperatura promedio mensual para cada estación.
 #'
+#'@examples
+#' colores_personalizados <- c("pink", "blue", "green", "yellow", "red")
+#' grafico_temperatura_mensual(metadatos_completos, colores_personalizados, "Temperatura")
 #'
+#'
+#'@export
 #'
 #'
 #'
@@ -40,7 +45,7 @@ grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Tempera
     dplyr::mutate(mes = lubridate::month(fecha)) %>%
     dplyr::group_by(id, mes) %>%
     dplyr::summarise(mean_temp = mean(temperatura_abrigo_150cm, na.rm = TRUE), .groups = 'drop') %>%
-    ggplot2::ggplot(aes(x = mes, y = mean_temp, color = id)) +
+    ggplot2::ggplot(ggplot2::aes(x = mes, y = mean_temp, color = id)) +
     ggplot2::geom_line() +
     ggplot2::scale_color_manual(values = colores) +
     ggplot2::labs(title = titulo, x = "Mes", y = "Temperatura Promedio")
@@ -48,5 +53,4 @@ grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Tempera
   return(grafico)
 
 }
-
 

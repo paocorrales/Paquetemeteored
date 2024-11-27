@@ -2,4 +2,5 @@
 
 export(descargar_datos)
 export(farenheit_a_centigrados)
+export(grafico_temperatura_mensual)
 export(tabla_resumen_temperatura)

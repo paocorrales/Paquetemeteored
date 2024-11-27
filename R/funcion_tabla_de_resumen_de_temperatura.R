@@ -25,7 +25,9 @@
 #' - `max_temp`: Temperatura máxima registrada para la estación.
 #' - `mean_temp`: Temperatura promedio registrada para la estación.
 #' @examples
-#' tabla_resumen_temperatura(NH0910)
+#' data(metadatos_completos)
+#' tabla_resumen_temperatura(metadatos_completos)
+#'
 #'
 #' @export
 #'
@@ -34,8 +36,8 @@ tabla_resumen_temperatura <- function(datos) {
     cli::cli_abort("El argumento 'datos' debe ser un dataframe.")
   }
   resumen <- datos %>%
-    group_by(id) %>%
-    summarise(
+    dplyr::group_by(id) %>%
+    dplyr::summarise(
       min_temp = min(temperatura_abrigo_150cm, na.rm = TRUE),
       max_temp = max(temperatura_abrigo_150cm, na.rm = TRUE),
       mean_temp = mean(temperatura_abrigo_150cm, na.rm = TRUE)

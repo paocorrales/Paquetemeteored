@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 ```{r, include = FALSE}
 library(Paquetemeteored)
+library(dplyr)
 ```
 
 
@@ -27,9 +28,9 @@ La función grafico_temperatura_mensual permite generar un gráfico de líneas q
 
 Ejemplo de uso:
 ```{r}
-NH0910 <- descargar_datos("NH0910", "data")
-
-grafico_temperatura_mensual(NH0910, colores = "blue", titulo = "Temperatura Promedio Mensual")
+NH0910 <- descargar_datos("NH0910", "data_raw")
+colores <- c("pink", "blue", "green", "yellow", "red")
+grafico_temperatura_mensual(NH0910, colores, titulo = "Temperatura Promedio Mensual")
 
 ```
 
