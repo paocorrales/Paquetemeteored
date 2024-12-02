@@ -39,10 +39,10 @@ descargar_datos <- function(id_estacion, directorio_destino) {
   }
 
   # Descargar el archivo
-  download.file(url = estacion_url, destfile = ruta_archivo)
+  utils::download.file(url = estacion_url, destfile = ruta_archivo)
 
   # Leer el archivo CSV
-  datos <- read.csv(ruta_archivo)
+  datos <- utils::read.csv(ruta_archivo)
 
   return(datos)
 }
