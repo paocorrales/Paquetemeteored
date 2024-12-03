@@ -75,7 +75,14 @@ Debe incluir al menos las columnas <code>id</code> y <code>temperatura_abrigo_15
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">metadatos_completos</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">tabla_resumen_temperatura</span><span class="op">(</span><span class="va">metadatos_completos</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in datos %&gt;% dplyr::group_by(id) %&gt;% dplyr::summarise(min_temp = min(temperatura_abrigo_150cm,     na.rm = TRUE), max_temp = max(temperatura_abrigo_150cm, na.rm = TRUE),     mean_temp = mean(temperatura_abrigo_150cm, na.rm = TRUE)):</span> could not find function "%&gt;%"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id     min_temp max_temp mean_temp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> NH0046    -<span style="color: #BB0000;">0.25</span>     34.6      17.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> NH0098   -<span style="color: #BB0000;">17.4</span>      37.4      18.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> NH0437     2.1      36.3      20.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> NH0472     0.55     34.8      18.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> NH0910     0        35.2      17.7</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
