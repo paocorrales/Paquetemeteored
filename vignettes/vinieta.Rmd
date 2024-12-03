@@ -28,7 +28,13 @@ La función grafico_temperatura_mensual permite generar un gráfico de líneas q
 
 Ejemplo de uso:
 ```{r}
-NH0910 <- descargar_datos("NH0910", "data_raw")
+
+temp_file <- tempfile(fileext = ".csv")
+write.csv(mtcars, temp_file)
+read.csv(temp_file)  
+unlink(temp_file)  
+
+NH0910 <- descargar_datos("NH0910", "temp_file")
 colores <- c("pink", "blue", "green", "yellow", "red")
 grafico_temperatura_mensual(NH0910, colores, titulo = "Temperatura Promedio Mensual")
 
@@ -59,5 +65,5 @@ La función descargar_datos permite descargar los datos meteorológicos de una e
 
 Ejemplo de uso:
 ```{r}
-descargar_datos("NH0098", "data")
+descargar_datos("NH0098", "temp_file")
 ```

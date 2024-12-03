@@ -28,6 +28,13 @@ La función realiza los siguientes pasos:
 }
 }
 \examples{
-descargar_datos("NH0098", "data_raw")
-descargar_datos("NH0910", "data_raw")
+\dontrun{
+temp_file <- tempfile(fileext = ".csv")
+write.csv(mtcars, temp_file)
+read.csv(temp_file)
+unlink(temp_file)  # Elimina el archivo temporal
+}
+
+descargar_datos("NH0098", "temp_file")
+descargar_datos("NH0910", "temp_file")
 }
